@@ -9,8 +9,8 @@ class PaddleOCR_Detector(BaseOCRModel):
     def load_model(self):
         self.detector = TextDetection(model_name="PP-OCRv5_server_det")
 
-    def predict(self, image_path, *args, **kwargs):
-        results = self.detector.predict(image_path)
+    def predict(self, image, *args, **kwargs):
+        results = self.detector.predict(image)
 
         boxes = []
         padding = 4  # số pixel muốn mở rộng

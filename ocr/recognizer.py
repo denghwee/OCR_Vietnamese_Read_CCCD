@@ -33,13 +33,13 @@ class VietOCR_Recognizer(BaseOCRModel):
         else:
             raise ValueError("Unsupported input type for recognizer: must be path or numpy array")
 
-    def predict(self, image_path, boxes=None, *args, **kwargs):
+    def predict(self, image, boxes=None, *args, **kwargs):
         """
         Nhận dạng text trong ảnh.
         Nếu có boxes: crop từng vùng chữ và nhận dạng.
         Nếu không: nhận dạng cả ảnh.
         """
-        img = self.load_image(image_path)
+        img = self.load_image(image)
         # img = Image.open(image_path).convert("RGB")
         
         results = []

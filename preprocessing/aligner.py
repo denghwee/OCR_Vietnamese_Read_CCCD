@@ -21,6 +21,8 @@ class CardAligner:
             if not corner_points:
                 print("[ERROR] Không detect được 4 góc.")
                 return None
+            elif len(corner_points) == 3:
+                corner_points = self.estimate_missing_corner(corner_points)
 
             if not self.validate_corners(corner_points):
                 return None
@@ -107,4 +109,30 @@ class CardAligner:
             return None
         return warped
 
-    
+    def estimate_missing_corner(self, corners):
+        """
+        corners: dict với key là tên góc ('top_left', 'top_right', 'bottom_left', 'bottom_right')
+        trả về dict đã có đủ 4 góc (nếu có thể nội suy được)
+        """
+        missing = [name for name in ['top_left', 'top_right', 'bottom_right', 'bottom_left'] if name not in corners]
+        if len(missing) != 1:
+            return corners  # chỉ xử lý nếu thiếu đúng 1 góc
+
+        m = missing[0]
+        c = corners
+
+        try:
+            if m == 'top_left':
+                c[m] = tuple(np.add(c['top_right'], c['bottom_left']) - c['bottom_right'])
+            elif m == 'top_right':
+                c[m] = tuple(np.add(c['top_left'], c['bottom_right']) - c['bottom_left'])
+            elif m == 'bottom_left':
+                c[m] = tuple(np.add(c['bottom_right'], c['top_left']) - c['top_right'])
+            elif m == 'bottom_right':
+                c[m] = tuple(np.add(c['bottom_left'], c['top_right']) - c['top_left'])
+        except KeyError:
+            # nếu thiếu quá nhiều góc → không thể nội suy
+            return corners
+
+        print(f"[INFO] Ước lượng góc {m}: {c[m]}")
+        return c

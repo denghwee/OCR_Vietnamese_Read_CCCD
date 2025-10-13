@@ -24,5 +24,11 @@ CONFIG = {
         "type": "vietocr",
         "config_name": "vgg_transformer",
         "device": "cuda:0"
+    },
+    "aligner": {
+        "type": "default"
+    },
+    "cleaner": {
+        "type": "default"
     }
 }

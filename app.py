@@ -3,32 +3,24 @@ import os
 import cv2
 import numpy as np
 
-from config.settings import CONFIG
 from ocr.pipeline import OCR_Pipeline
 from extractor.field_extractor import FieldExtractor
-from preprocessing.aligner import CardAligner
-from preprocessing.image_cleaner import ImageCleaner
 
 # ===============================
 # Load các model chỉ 1 lần
 # ===============================
 @st.cache_resource
 def load_model():
-    return OCR_Pipeline(), CardAligner(model_path='model/model_crop.pt', img_size=640)
+    return OCR_Pipeline()
 
-ocr_model, aligner = load_model()
+ocr_model = load_model()
 
 # ===============================
 # Hàm chạy pipeline OCR
 # ===============================
 def run_pipeline(image: np.ndarray):
-    # cleaner = ImageCleaner()
-
-    cropped = aligner.align(image)
-
-    # Dùng model đã cache
-    ocr_lines = ocr_model.predict(image)
-    return ocr_lines, cropped
+    ocr_lines, cropped, cleaned = ocr_model.predict(image)
+    return ocr_lines, cropped, cleaned
 
 
 # ===============================
@@ -49,9 +41,11 @@ def main():
                  caption="Ảnh CCCD gốc",
                  width=400)
 
+        # Đưa ảnh vào pipeline
         with st.spinner("⏳ Đang xử lý OCR..."):
-            ocr_lines, cropped = run_pipeline(image)
+            ocr_lines, cropped, cleaned = run_pipeline(image)
 
+        # Hiển thị ảnh sau khi được deskew
         st.subheader("Kết quả sau khi deskew và clean")
         if cropped is None or cropped.size == 0:
             st.error("Ảnh bị rỗng, không thể hiển thị! Kiểm tra lại bước crop hoặc load ảnh.")
@@ -61,9 +55,13 @@ def main():
                     caption="Ảnh sau khi crop",
                     width=400)
         
-        # st.image(cv2.cvtColor(cleaned, cv2.COLOR_BGR2RGB),
-        #          caption="clean",
-        #          width=400)
+        # Hiển thị ảnh sau khi được làm sạch trước khi đi vào recognize
+        if cleaned is None or cleaned.size == 0:
+            st.error("Ảnh bị rỗng, không thể hiển thị! Kiểm tra lại bước clean hoặc load ảnh.")
+        else:
+            st.image(cv2.cvtColor(cleaned, cv2.COLOR_BGR2RGB),
+                    caption="Ảnh sau khi clean",
+                    width=400)
 
         st.subheader("📜 Kết quả OCR Raw")
         for line in ocr_lines[::-1]:
