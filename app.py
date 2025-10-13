@@ -6,32 +6,29 @@ import numpy as np
 from config.settings import CONFIG
 from ocr.pipeline import OCR_Pipeline
 from extractor.field_extractor import FieldExtractor
-from preprocessing.alinger import ImageAligner
+from preprocessing.aligner import CardAligner
 from preprocessing.image_cleaner import ImageCleaner
 
 # ===============================
-# Load OCR model chỉ 1 lần
+# Load các model chỉ 1 lần
 # ===============================
 @st.cache_resource
-def load_ocr_model():
-    return OCR_Pipeline()
+def load_model():
+    return OCR_Pipeline(), CardAligner(model_path='model/model_crop.pt', img_size=640)
 
-ocr_model = load_ocr_model()  # giữ model OCR trong cache
+ocr_model, aligner = load_model()
 
 # ===============================
 # Hàm chạy pipeline OCR
 # ===============================
 def run_pipeline(image: np.ndarray):
-    aligner = ImageAligner()
-    cleaner = ImageCleaner()
+    # cleaner = ImageCleaner()
 
-    # Nếu cần tiền xử lý thì bật lại
-    # aligned = aligner.deskew(image)
-    # cleaned = cleaner.clean(aligned)
+    cropped = aligner.align(image)
 
     # Dùng model đã cache
     ocr_lines = ocr_model.predict(image)
-    return ocr_lines
+    return ocr_lines, cropped
 
 
 # ===============================
@@ -53,7 +50,20 @@ def main():
                  width=400)
 
         with st.spinner("⏳ Đang xử lý OCR..."):
-            ocr_lines = run_pipeline(image)
+            ocr_lines, cropped = run_pipeline(image)
+
+        st.subheader("Kết quả sau khi deskew và clean")
+        if cropped is None or cropped.size == 0:
+            st.error("Ảnh bị rỗng, không thể hiển thị! Kiểm tra lại bước crop hoặc load ảnh.")
+            st.stop()
+        else:
+            st.image(cv2.cvtColor(cropped, cv2.COLOR_BGR2RGB),
+                    caption="Ảnh sau khi crop",
+                    width=400)
+        
+        # st.image(cv2.cvtColor(cleaned, cv2.COLOR_BGR2RGB),
+        #          caption="clean",
+        #          width=400)
 
         st.subheader("📜 Kết quả OCR Raw")
         for line in ocr_lines[::-1]:
