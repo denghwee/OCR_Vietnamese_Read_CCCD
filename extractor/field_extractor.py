@@ -6,8 +6,8 @@ from config.settings import CONFIG
 
 class FieldExtractor:
     """
-    Class dùng để trích xuất các trường thông tin (ID, Name, Birth, Home, Address)
-    từ văn bản OCR của giấy tờ tùy thân (CMND/CCCD).
+    Class dùng để trích xuất các trường thông tin (ID, Name, Date of birth, Sex, Nationality, Place of origin, Place of residence)
+    từ văn bản OCR của giấy tờ tùy thân (CCCD).
     """
 
     def __init__(self, model: str = "gpt-4o-mini"):
@@ -38,7 +38,7 @@ class FieldExtractor:
         :param ocr_text: Chuỗi text thu được từ OCR
         :return: dict gồm các trường id, name, dob, sex, nationality, placeoforigin, placeofresidence
         """
-        
+
         prompt = f"""
         Hãy đọc văn bản sau được trích xuất từ căn cước công dân hoặc chứng minh nhân dân Việt Nam,
         và sửa lỗi chính tả nếu có (có thể bao gồm thêm các lỗi về sai tên tỉnh thành, thành phố, đất nước,...), sau đó hãy trích xuất thông tin vào JSON với 7 trường: id, name, dob, sex, nationality, placeoforigin, placeofresidence.
