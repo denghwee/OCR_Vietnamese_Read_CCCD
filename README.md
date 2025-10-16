@@ -34,10 +34,9 @@ OCR_Vietnamese_Read_CCCD/
 ├─ config/               # Cấu hình (tham số, đường dẫn,...)
 ├─ data/                 # Tập dữ liệu mẫu, ảnh và nhãn
 ├─ preprocessing/        # Mã tiền xử lý ảnh
-├─ ocr/                  # Wrapper cho engine OCR (pytesseract, easyocr, ...)
-├─ extractor/            # Luồng trích xuất trường thông tin từ text thô
-├─ model/                # Các mô hình / weights nếu có
-├─ .gitignore
+├─ ocr/                  # Wrapper cho engine OCR (PaddleOCR, VietOCR)
+├─ extractor/            # Làm sạch text thô từ OCR và trích xuất các trường thông tin
+├─ model/                # Các mô hình / weights
 └─ README.md
 ```
 
