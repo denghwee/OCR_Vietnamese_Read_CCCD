@@ -20,7 +20,7 @@ class FieldExtractor:
 
     def build_client(self):
         """
-        Tạo OpenAI client. Nếu cfg['id'] trống, tự động load từ biến môi trường hoặc file .env.
+        Tạo OpenAI client. Load từ file .env.
         """
         load_dotenv()
         
