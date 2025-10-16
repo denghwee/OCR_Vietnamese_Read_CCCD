@@ -30,8 +30,5 @@ CONFIG = {
     },
     "cleaner": {
         "type": "default"
-    },
-    "api_key": {
-        "id": "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"
     }
 }
