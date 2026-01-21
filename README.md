@@ -70,11 +70,11 @@ Hệ thống được xây dựng với kiến trúc modular, dễ mở rộng v
 
 ### Giao diện chính
 
-![Demo Interface](https://media.discordapp.net/attachments/1276917701717266526/1462663813890572382/image.png?ex=696f0354&is=696db1d4&hm=da5a9be388af8d190c88e36efc1ff97be0ad1d681f7feba7ccd48dbc0c06cb6e&=&format=webp&quality=lossless&width=1726&height=861)
+![Demo Interface](https://media.discordapp.net/attachments/1276917701717266526/1462663813890572382/image.png?ex=6970fd94&is=696fac14&hm=28da944b60715c6585e1efe58227a3ccc33a7dd443f4c68a965838e950e0f547&=&format=webp&quality=lossless&width=1726&height=861)
 
 ### Kết quả trích xuất
 
-![Extraction Results](https://media.discordapp.net/attachments/1276917701717266526/1462666449066786910/image.png?ex=696f05c8&is=696db448&hm=8e06f57ef4ee6737e62389cd6869cd712038def30c3a961e1dd72036d7a636ef&=&format=webp&quality=lossless&width=1546&height=873)
+![Extraction Results](https://media.discordapp.net/attachments/1276917701717266526/1462666449066786910/image.png?ex=69710008&is=696fae88&hm=a2d4eef3dc266b124fb4f06d9de08902e0c289921795dbe7f83089611de875c3&=&format=webp&quality=lossless&width=1546&height=873)
 
 ---
 
