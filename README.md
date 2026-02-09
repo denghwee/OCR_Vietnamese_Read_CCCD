@@ -1,4 +1,4 @@
-# 🪪 OCR Vietnamese - Đọc & Trích xuất thông tin Căn Cước Công Dân
+<img width="1911" height="1079" alt="image" src="https://github.com/user-attachments/assets/2c55683b-826e-47f3-913d-d60db6987d70" /># 🪪 OCR Vietnamese - Đọc & Trích xuất thông tin Căn Cước Công Dân
 
 > Hệ thống OCR tự động để đọc và trích xuất thông tin từ ảnh Căn cước công dân (CCCD) Việt Nam
 
@@ -70,11 +70,11 @@ Hệ thống được xây dựng với kiến trúc modular, dễ mở rộng v
 
 ### Giao diện chính
 
-![Demo Interface](https://media.discordapp.net/attachments/1276917701717266526/1462663813890572382/image.png?ex=6970fd94&is=696fac14&hm=28da944b60715c6585e1efe58227a3ccc33a7dd443f4c68a965838e950e0f547&=&format=webp&quality=lossless&width=1726&height=861)
+![Demo Interface](https://media.discordapp.net/attachments/1276917701717266526/1462663813890572382/image.png?ex=698ab2d4&is=69896154&hm=db05ca192ab289a9e3b29e3ffd35d523e4d5357b86d803480faecbe5cbfa1b8e&=&format=webp&quality=lossless&width=1726&height=861)
 
 ### Kết quả trích xuất
 
-![Extraction Results](https://media.discordapp.net/attachments/1276917701717266526/1462666449066786910/image.png?ex=69710008&is=696fae88&hm=a2d4eef3dc266b124fb4f06d9de08902e0c289921795dbe7f83089611de875c3&=&format=webp&quality=lossless&width=1546&height=873)
+![Extraction Results](https://media.discordapp.net/attachments/1276917701717266526/1462666449066786910/image.png?ex=698ab548&is=698963c8&hm=f29b46a77b389feddcc8d53f192bd44b32c58a0f91867bb8f4dfe0912abeae68&=&format=webp&quality=lossless&width=1546&height=873)
 
 ---
 
