@@ -1,4 +1,4 @@
-<img width="1911" height="1079" alt="image" src="https://github.com/user-attachments/assets/2c55683b-826e-47f3-913d-d60db6987d70" /># 🪪 OCR Vietnamese - Đọc & Trích xuất thông tin Căn Cước Công Dân
+# 🪪 OCR Vietnamese - Đọc & Trích xuất thông tin Căn Cước Công Dân
 
 > Hệ thống OCR tự động để đọc và trích xuất thông tin từ ảnh Căn cước công dân (CCCD) Việt Nam
 
