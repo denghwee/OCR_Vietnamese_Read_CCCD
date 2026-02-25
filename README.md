@@ -70,7 +70,7 @@ Hệ thống được xây dựng với kiến trúc modular, dễ mở rộng v
 
 ### Giao diện chính
 
-![Demo Interface](https://media.discordapp.net/attachments/1276917701717266526/1462663813890572382/image.png?ex=698ab2d4&is=69896154&hm=db05ca192ab289a9e3b29e3ffd35d523e4d5357b86d803480faecbe5cbfa1b8e&=&format=webp&quality=lossless&width=1726&height=861)
+![Demo Interface](/data/image.png)
 
 ### Kết quả trích xuất
 
