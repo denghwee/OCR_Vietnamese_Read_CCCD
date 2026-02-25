@@ -74,7 +74,7 @@ Hệ thống được xây dựng với kiến trúc modular, dễ mở rộng v
 
 ### Kết quả trích xuất
 
-![Extraction Results](https://media.discordapp.net/attachments/1276917701717266526/1462666449066786910/image.png?ex=698ab548&is=698963c8&hm=f29b46a77b389feddcc8d53f192bd44b32c58a0f91867bb8f4dfe0912abeae68&=&format=webp&quality=lossless&width=1546&height=873)
+![Extraction Results](/data/image1.png)
 
 ---
 
